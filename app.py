@@ -3,7 +3,7 @@ import tkinter as tk
 import threading
 from tkinter import scrolledtext
 # Removed LOG_FILE import
-from ransomware_monitor import start_scan, start_monitoring, block_ransomware
+from ransomware import start_scan, start_monitoring, block_ransomware
 
 
 def start_gui():
