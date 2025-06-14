@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple HTML Page</title>
+</head>
+<body>
+ patch-2
+ <h1>Welcome to My Simple HTML Page</h1>
+ <h1>Welcome to My Simple HTML Page</h1><h2>saurabh is stuck!</h2><h3>in main</h3>
+ main
+ <p>This is a basic HTML page.</p>
+ <h1>Welcome to My Simple HTML Page</h1>
+ <h1>Welcome to My Simple HTML Page</h1><h2>saurabh is stuck!</h2><h3>in main</h3>
+ main
+ <p>This is a basic HTML page.</p>
+</body>
+</html>
