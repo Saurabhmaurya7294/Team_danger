@@ -16,7 +16,9 @@ def upload_file():
     if file:
         filepath = os.path.join(UPLOAD_FOLDER, file.filename)
         file.save(filepath)
+        
         ipfs_response = upload_to_pinata(filepath)
+        print("IPFS Response:", ipfs_response)  # 👈 Add this line
         return jsonify(ipfs_response)
     return jsonify({'error': 'No file uploaded'}), 400
 

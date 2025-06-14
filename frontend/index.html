@@ -3,56 +3,84 @@
 <head>
     <meta charset="UTF-8">
     <title>MediChain Vault</title>
-    <link rel="stylesheet" href="index.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="index.css"> <!-- Your CSS file -->
 </head>
 <body>
-    <div class="main-wrapper">
-        <h1>🩺 MediChain Vault</h1>
 
-        <!-- Doctor Upload Section -->
-        <section class="card doctor-card">
-            <h2>👨‍⚕️ Doctor Panel</h2>
-            <p>Securely upload medical records to IPFS for patient access.</p>
-            <form id="uploadForm" enctype="multipart/form-data">
-                <input type="file" name="file" required />
-                <button type="submit">Upload to IPFS</button>
-            </form>
-            <div id="uploadResult" class="result-box"></div>
-        </section>
+    <h1>🩺 MediChain Vault</h1>
 
-        <!-- Divider -->
-        <div class="divider">⬇ OR ⬇</div>
+    <!-- Doctor Upload Section -->
+    <section>
+        <h2>👨‍⚕️ Upload Patient Medical File</h2>
+        <form id="uploadForm" enctype="multipart/form-data">
+            <input type="file" name="file" required />
+            <button type="submit">Upload to IPFS</button>
+        </form>
+        <div id="uploadResult"></div>
+    </section>
 
-        <!-- Patient Access Section -->
-        <section class="card patient-card">
-            <h2>👤 Patient Panel</h2>
-            <p>Access your medical report using the IPFS hash provided.</p>
-            <form id="accessForm">
-                <input type="text" id="ipfsHash" placeholder="Enter your IPFS Hash" required />
-                <button type="submit">View My File</button>
-            </form>
-            <div id="accessResult" class="result-box"></div>
-        </section>
-    </div>
+    <hr>
+
+    <!-- Patient Access Section -->
+    <section>
+        <h2>👤 Patient Access</h2>
+        <form id="accessForm">
+            <input type="text" id="ipfsHash" placeholder="Enter your IPFS hash" required />
+            <button type="submit">View My Medical File</button>
+        </form>
+        <div id="accessResult"></div>
+    </section>
 
     <script>
-        // Upload handler
+        // Doctor uploads the file
         document.getElementById("uploadForm").addEventListener("submit", async function (e) {
             e.preventDefault();
             const formData = new FormData(this);
-            const res = await fetch("/upload", {
-                method: "POST",
-                body: formData
-            });
-            const data = await res.json();
-            document.getElementById("uploadResult").innerHTML = `
-                <p><strong>✅ File Uploaded!</strong></p>
-                <p><strong>IPFS Hash:</strong> <code>${data.IpfsHash}</code></p>
-                <p><a href="https://gateway.pinata.cloud/ipfs/${data.IpfsHash}" target="_blank" class="link-btn">🔗 View File</a></p>
-            `;
+
+            try {
+                const res = await fetch("/upload", {
+                    method: "POST",
+                    body: formData
+                });
+
+                const data = await res.json();
+                console.log(data);
+
+                if (data.IpfsHash) {
+                    document.getElementById("uploadResult").innerHTML = `
+                        <p><strong>✅ File uploaded to IPFS!</strong></p>
+                        <p><strong>IPFS Hash:</strong> ${data.IpfsHash}</p>
+                        <p>Share this with the patient:</p>
+                        <code>${data.IpfsHash}</code>
+                    `;
+                } else {
+                    throw new Error("IPFS hash not returned");
+                }
+            } catch (err) {
+                document.getElementById("uploadResult").innerHTML = `
+                    <p style="color:red;">❌ Upload failed. ${err.message}</p>
+                `;
+            }
         });
 
-        // Access handler
+        // Patient accesses file via hash
         document.getElementById("accessForm").addEventListener("submit", function (e) {
-            e.preventDefault
+            e.preventDefault();
+            const hash = document.getElementById("ipfsHash").value.trim();
+
+            if (!hash) {
+                document.getElementById("accessResult").innerHTML = "<p style='color:red;'>Please enter a valid IPFS hash.</p>";
+                return;
+            }
+
+            // ✅ Correct IPFS gateway format
+            const gatewayUrl = `https://coral-adjacent-dingo-880.mypinata.cloud/ipfs/${hash}`;
+            document.getElementById("accessResult").innerHTML = `
+                <p><strong>Your File:</strong></p>
+                <a href="${gatewayUrl}" target="_blank">🗂️ Open Medical Report</a>
+            `;
+        });
+    </script>
+
+</body>
+</html>
