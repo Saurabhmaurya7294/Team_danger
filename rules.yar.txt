@@ -1,0 +1,9 @@
+rule Example_Malware
+{
+    meta:
+        description = "Detects a test malware string"
+    strings:
+        $mz = "This program cannot be run in DOS mode"
+    condition:
+        $mz
+}
