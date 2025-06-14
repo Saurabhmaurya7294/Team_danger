@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MediChain Vault</title>
+    <link rel="stylesheet" href="index.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="main-wrapper">
+        <h1>🩺 MediChain Vault</h1>
+
+        <!-- Doctor Upload Section -->
+        <section class="card doctor-card">
+            <h2>👨‍⚕️ Doctor Panel</h2>
+            <p>Securely upload medical records to IPFS for patient access.</p>
+            <form id="uploadForm" enctype="multipart/form-data">
+                <input type="file" name="file" required />
+                <button type="submit">Upload to IPFS</button>
+            </form>
+            <div id="uploadResult" class="result-box"></div>
+        </section>
+
+        <!-- Divider -->
+        <div class="divider">⬇ OR ⬇</div>
+
+        <!-- Patient Access Section -->
+        <section class="card patient-card">
+            <h2>👤 Patient Panel</h2>
+            <p>Access your medical report using the IPFS hash provided.</p>
+            <form id="accessForm">
+                <input type="text" id="ipfsHash" placeholder="Enter your IPFS Hash" required />
+                <button type="submit">View My File</button>
+            </form>
+            <div id="accessResult" class="result-box"></div>
+        </section>
+    </div>
+
+    <script>
+        // Upload handler
+        document.getElementById("uploadForm").addEventListener("submit", async function (e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+            const res = await fetch("/upload", {
+                method: "POST",
+                body: formData
+            });
+            const data = await res.json();
+            document.getElementById("uploadResult").innerHTML = `
+                <p><strong>✅ File Uploaded!</strong></p>
+                <p><strong>IPFS Hash:</strong> <code>${data.IpfsHash}</code></p>
+                <p><a href="https://gateway.pinata.cloud/ipfs/${data.IpfsHash}" target="_blank" class="link-btn">🔗 View File</a></p>
+            `;
+        });
+
+        // Access handler
+        document.getElementById("accessForm").addEventListener("submit", function (e) {
+            e.preventDefault
