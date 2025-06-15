@@ -1,0 +1,57 @@
+------------------------------------------------------------
+Patient UID: PAT123A9
+Name: Rohan Sharma
+Age: 28
+Gender: Male
+Illness: Acute Bronchitis
+Medicines Prescribed:
+  - Azithromycin 500mg - 1 tablet/day for 3 days
+  - Cough Syrup (Benadryl) - 10ml thrice daily
+  - Paracetamol 650mg - if fever persists
+
+------------------------------------------------------------
+Patient UID: PAT445K2
+Name: Neha Verma
+Age: 34
+Gender: Female
+Illness: Type 2 Diabetes
+Medicines Prescribed:
+  - Metformin 500mg - twice daily
+  - Glimepiride 2mg - once daily before breakfast
+  - Regular insulin - as per glucose levels
+
+------------------------------------------------------------
+Patient UID: PAT789G1
+Name: Suresh Kumar
+Age: 62
+Gender: Male
+Illness: Hypertension & High Cholesterol
+Medicines Prescribed:
+  - Amlodipine 5mg - once daily
+  - Atorvastatin 10mg - once daily at bedtime
+  - Aspirin 75mg - once daily
+
+------------------------------------------------------------
+Patient UID: PAT902Z5
+Name: Priya Desai
+Age: 19
+Gender: Female
+Illness: Migraine
+Medicines Prescribed:
+  - Sumatriptan 50mg - as needed during migraine attack
+  - Naproxen 250mg - twice daily with meals
+  - Vitamin B2 (Riboflavin) - once daily
+
+------------------------------------------------------------
+Patient UID: PAT632J7
+Name: Akash Mehta
+Age: 41
+Gender: Male
+Illness: COVID-19 (Mild)
+Medicines Prescribed:
+  - Dolo 650mg - if fever present
+  - Vitamin C & Zinc tablets - once daily
+  - Steam inhalation - thrice daily
+  - Isolation & hydration
+
+------------------------------------------------------------

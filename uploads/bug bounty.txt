@@ -1,0 +1,4 @@
+clickjacking
+idor
+shodan 
+wapplayer
