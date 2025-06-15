@@ -1,123 +1,80 @@
-Here’s a complete and clean README.md text for your MediChain Vault project with IPFS + Solidity integration and a frontend UI:
+<div class="prose prose-sm md:prose-base lg:prose-lg max-w-none prose-headings:font-bold prose-a:text-blue-600" style="user-select: none;"><div id="top" class="">
 
-🩺 MediChain Vault
-A secure and decentralized web application for uploading, storing, and retrieving medical files using IPFS, Pinata, and Ethereum smart contracts (Solidity).
-Patients and doctors can seamlessly share and access medical records while ensuring privacy and immutability.
+<div align="center" class="text-center">
+<h1>TEAM_DANGER</h1>
+<p><em>Empowering Secure, Decentralized Medical Data Access</em></p>
 
-🚀 Features
-🔐 Secure medical file uploads
-
-🌐 IPFS integration via Pinata API
-
-🧾 Smart contract storage of IPFS hashes on Ethereum
-
-🧑‍⚕️ Doctor & 👤 Patient portals
-
-📎 View medical reports using unique IPFS hashes
-
-💻 Built with HTML, CSS, JavaScript (Ethers.js), Flask (Python), Solidity
-
-🛠️ Technologies Used
-Layer	Tech Stack
-Frontend	HTML, CSS, JavaScript (Ethers.js)
-Backend	Flask (Python), REST API
-Blockchain	Solidity Smart Contracts, Ethereum
-Storage	IPFS via Pinata
-
-📂 Folder Structure
-php
-Copy
-Edit
-MediChain-Vault/
-│
-├── app.py                  # Flask backend for IPFS upload
-├── templates/
-│   └── index.html          # Web UI
-├── static/
-│   ├── style.css           # Custom styles
-│   └── app.js              # Ethereum smart contract logic
-├── contract/
-│   └── MediVault.sol       # Solidity contract
-└── README.md
-⚙️ How It Works
-Doctor uploads a medical file via web UI
-
-The file is sent to Pinata, which returns an IPFS hash
-
-The hash is:
-
-✅ Shown to the doctor for sharing
-
-✅ Stored on the blockchain using a Solidity smart contract
-
-Patient enters the hash to view/download their report via a secure IPFS gateway
-
-🧪 Sample Smart Contract
-solidity
-Copy
-Edit
-// SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-
-contract MediVault {
-    mapping(address => string[]) public records;
-
-    function addRecord(address user, string memory ipfsHash) public {
-        records[user].push(ipfsHash);
-    }
-
-    function getRecords(address user) public view returns (string[] memory) {
-        return records[user];
-    }
-}
-🔧 Setup Instructions
-Clone the repo
-
-bash
-Copy
-Edit
-git clone https://github.com/yourusername/MediChain-Vault.git
-cd MediChain-Vault
-Install Python dependencies
-
-bash
-Copy
-Edit
-pip install flask python-dotenv requests
-Run Flask server
-
-bash
-Copy
-Edit
-python app.py
-Configure Pinata API keys
-
-Create a .env file:
-
-ini
-Copy
-Edit
-PINATA_API_KEY=your_key_here
-PINATA_SECRET_API_KEY=your_secret_here
-Deploy smart contract
-Use Remix or Hardhat to deploy MediVault.sol. Copy the contract address and paste it in app.js.
-
-📌 Notes
-You need MetaMask to interact with the Ethereum network.
-
-Currently set to work with Pinata Gateway and IPFS for free storage.
-
-Ethereum testnets like Sepolia or Mumbai (Polygon) recommended for testing.
-
-🤝 Credits
-Pinata
-
-IPFS
-
-Ethers.js
-
-Flask
-
-📄 License
-MIT License © 2025 MediChain Team
-
+<img alt="last-commit" src="https://img.shields.io/github/last-commit/Saurabhmaurya7294/Team_danger?style=flat&amp;logo=git&amp;logoColor=white&amp;color=0080ff" class="inline-block mx-1" style="margin: 0px 2px;">
+<img alt="repo-top-language" src="https://img.shields.io/github/languages/top/Saurabhmaurya7294/Team_danger?style=flat&amp;color=0080ff" class="inline-block mx-1" style="margin: 0px 2px;">
+<img alt="repo-language-count" src="https://img.shields.io/github/languages/count/Saurabhmaurya7294/Team_danger?style=flat&amp;color=0080ff" class="inline-block mx-1" style="margin: 0px 2px;">
+<p><em>Built with the tools and technologies:</em></p>
+<img alt="Markdown" src="https://img.shields.io/badge/Markdown-000000.svg?style=flat&amp;logo=Markdown&amp;logoColor=white" class="inline-block mx-1" style="margin: 0px 2px;">
+<img alt="Python" src="https://img.shields.io/badge/Python-3776AB.svg?style=flat&amp;logo=Python&amp;logoColor=white" class="inline-block mx-1" style="margin: 0px 2px;">
+</div>
+<br>
+<hr>
+<h2>Table of Contents</h2>
+<ul class="list-disc pl-4 my-0">
+<li class="my-0"><a href="#overview">Overview</a></li>
+<li class="my-0"><a href="#getting-started">Getting Started</a>
+<ul class="list-disc pl-4 my-0">
+<li class="my-0"><a href="#prerequisites">Prerequisites</a></li>
+<li class="my-0"><a href="#installation">Installation</a></li>
+<li class="my-0"><a href="#usage">Usage</a></li>
+<li class="my-0"><a href="#testing">Testing</a></li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2>Overview</h2>
+<p>Team_danger is a developer tool that leverages IPFS and Ethereum smart contracts to facilitate secure, decentralized management of medical records. It enables seamless uploading, sharing, and retrieval of files through an intuitive web interface, ensuring privacy, immutability, and decentralized access for patients and healthcare providers.</p>
+<p><strong>Why Team_danger?</strong></p>
+<p>This project aims to revolutionize healthcare data security by integrating blockchain and decentralized storage. The core features include:</p>
+<ul class="list-disc pl-4 my-0">
+<li class="my-0">🛡️ <strong>Secure Storage:</strong> Utilizes IPFS for tamper-proof, distributed file storage.</li>
+<li class="my-0">🔗 <strong>Blockchain Recording:</strong> Records file hashes on Ethereum for immutability and auditability.</li>
+<li class="my-0">🌐 <strong>Web Interface:</strong> Provides an easy-to-use platform for uploading and accessing medical records.</li>
+<li class="my-0">🧩 <strong>Decentralized Infrastructure:</strong> Connects IPFS, Pinata, and smart contracts for reliable data management.</li>
+<li class="my-0">🔒 <strong>Privacy &amp; Access Control:</strong> Ensures sensitive data remains private and accessible only to authorized users.</li>
+</ul>
+<hr>
+<h2>Getting Started</h2>
+<h3>Prerequisites</h3>
+<p>This project requires the following dependencies:</p>
+<ul class="list-disc pl-4 my-0">
+<li class="my-0"><strong>Programming Language:</strong> Python</li>
+<li class="my-0"><strong>Package Manager:</strong> Pip</li>
+</ul>
+<h3>Installation</h3>
+<p>Build Team_danger from the source and install dependencies:</p>
+<ol>
+<li class="my-0">
+<p><strong>Clone the repository:</strong></p>
+<pre><code class="language-sh">❯ git clone https://github.com/Saurabhmaurya7294/Team_danger
+</code></pre>
+</li>
+<li class="my-0">
+<p><strong>Navigate to the project directory:</strong></p>
+<pre><code class="language-sh">❯ cd Team_danger
+</code></pre>
+</li>
+<li class="my-0">
+<p><strong>Install the dependencies:</strong></p>
+</li>
+</ol>
+<p><strong>Using <a href="https://pypi.org/project/pip/">pip</a>:</strong></p>
+<pre><code class="language-sh">❯ pip install -r requirements.txt
+</code></pre>
+<h3>Usage</h3>
+<p>Run the project with:</p>
+<p><strong>Using <a href="https://pypi.org/project/pip/">pip</a>:</strong></p>
+<pre><code class="language-sh">python {entrypoint}
+</code></pre>
+<h3>Testing</h3>
+<p>Team_danger uses the {<strong>test_framework</strong>} test framework. Run the test suite with:</p>
+<p><strong>Using <a href="https://pypi.org/project/pip/">pip</a>:</strong></p>
+<pre><code class="language-sh">pytest
+</code></pre>
+<hr>
+<div align="left" class=""><a href="#top">⬆ Return</a></div>
+<hr></div></div>
